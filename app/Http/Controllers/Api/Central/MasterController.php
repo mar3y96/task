@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api\Centrall;
+namespace App\Http\Controllers\Api\Central;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Centrall\TenantRequest;
+use App\Http\Requests\Central\TenantRequest;
 use App\Services\TenantService;
 
 class MasterController extends Controller

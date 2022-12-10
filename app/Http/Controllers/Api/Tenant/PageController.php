@@ -67,6 +67,7 @@ class PageController extends Controller
      */
     public function update(PageRequest $request, Page $page)
     {
+        
         $page = $this->pageService->update($page, $request->validated());
 
         return response([

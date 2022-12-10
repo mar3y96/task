@@ -26,6 +26,7 @@ Route::middleware([
     });
 });
 
+
 Route::middleware([
     'api',
     'tenant'
