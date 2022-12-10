@@ -20,6 +20,7 @@ return [
     'central_domains' => [
         '127.0.0.1',
         'localhost',
+        'task1.test'
     ],
 
     /**
@@ -52,7 +53,7 @@ return [
          * Tenant database names are created like this:
          * prefix + tenant_id + suffix.
          */
-        'prefix' => 'tenant',
+        'prefix' => 'tenant_',
         'suffix' => '',
 
         /**
