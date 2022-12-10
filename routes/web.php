@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+include __DIR__ . '/' . 'tenant.php';
 Route::get('/', function () {
     return view('welcome');
 });
-include __DIR__ . '/' . 'tenant.php';
