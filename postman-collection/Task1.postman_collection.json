@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "a8fda8cd-df5a-4137-acd0-b27a6d6c1046",
+		"name": "Task1",
+		"description": "**this is simple example of multi tenant application with laravel**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5191156"
+	},
+	"item": [
+		{
+			"name": "Page",
+			"item": [
+				{
+					"name": "pages",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{tenantUrl}}/api/pages",
+							"host": [
+								"{{tenantUrl}}"
+							],
+							"path": [
+								"api",
+								"pages"
+							]
+						},
+						"description": "get all pages of tenant"
+					},
+					"response": []
+				},
+				{
+					"name": "page{id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{tenantUrl}}/api/pages/1",
+							"host": [
+								"{{tenantUrl}}"
+							],
+							"path": [
+								"api",
+								"pages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-page{id}",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"update page title\",\n    \"content\":\"update page content\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{tenantUrl}}/api/pages/1",
+							"host": [
+								"{{tenantUrl}}"
+							],
+							"path": [
+								"api",
+								"pages",
+								"1"
+							]
+						},
+						"description": "edit page"
+					},
+					"response": []
+				},
+				{
+					"name": "delete-page{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{tenantUrl}}/api/pages/3",
+							"host": [
+								"{{tenantUrl}}"
+							],
+							"path": [
+								"api",
+								"pages",
+								"3"
+							]
+						},
+						"description": "delete page"
+					},
+					"response": []
+				},
+				{
+					"name": "store-page",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"page title\",\n    \"content\":\"page content\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{tenantUrl}}/api/pages",
+							"host": [
+								"{{tenantUrl}}"
+							],
+							"path": [
+								"api",
+								"pages"
+							]
+						},
+						"description": "create page"
+					},
+					"response": []
+				}
+			],
+			"description": "this folder include pages crud"
+		},
+		{
+			"name": "create-tenant",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tenant_id\":\"foo\",\n    \"domain\":\"foo.test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{centralUrl}}/api/create-tenant",
+					"host": [
+						"{{centralUrl}}"
+					],
+					"path": [
+						"api",
+						"create-tenant"
+					]
+				},
+				"description": "create a tenant with given id and domain"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "centralUrl",
+			"value": "task1.test",
+			"type": "string"
+		},
+		{
+			"value": "tenantUrl",
+			"type": "string"
+		}
+	]
+}
