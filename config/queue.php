@@ -40,6 +40,8 @@ return [
             'queue' => 'default',
             'retry_after' => 90,
             'after_commit' => false,
+            // 'connection' => env('DB_DATABASE'),
+
         ],
 
         'beanstalkd' => [
