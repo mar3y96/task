@@ -26,4 +26,5 @@ class PageService
     {
         return tap($page)->update($data);
     }
+
 }
