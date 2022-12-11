@@ -202,6 +202,211 @@
 			"description": "this folder include pages crud"
 		},
 		{
+			"name": "User",
+			"item": [
+				{
+					"name": "home",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{tenantUrl}}/api/user/home",
+							"host": [
+								"{{tenantUrl}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"home"
+							]
+						},
+						"description": "create a tenant with given id and domain"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "users",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{adminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{tenantUrl}}/api/admin/users",
+									"host": [
+										"{{tenantUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users"
+									]
+								},
+								"description": "create a tenant with given id and domain"
+							},
+							"response": []
+						},
+						{
+							"name": "update-user{id}",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{adminToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"mohammed2\",\n    \"email\":\"m.mar3y9@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{tenantUrl}}/api/admin/users/10",
+									"host": [
+										"{{tenantUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"10"
+									]
+								},
+								"description": "create a tenant with given id and domain"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "home",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{tenantUrl}}/api/admin/home",
+							"host": [
+								"{{tenantUrl}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"home"
+							]
+						},
+						"description": "create a tenant with given id and domain"
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "create-tenant",
 			"request": {
 				"method": "POST",
@@ -229,6 +434,40 @@
 					"path": [
 						"api",
 						"create-tenant"
+					]
+				},
+				"description": "create a tenant with given id and domain"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"admin@test.com\",\n    \"password\":\"password\",\n    \"guard\":\"admin\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{tenantUrl}}/api/login",
+					"host": [
+						"{{tenantUrl}}"
+					],
+					"path": [
+						"api",
+						"login"
 					]
 				},
 				"description": "create a tenant with given id and domain"
@@ -263,7 +502,18 @@
 			"type": "string"
 		},
 		{
-			"value": "tenantUrl",
+			"key": "tenantUrl",
+			"value": "foo.test",
+			"type": "string"
+		},
+		{
+			"key": "userToken",
+			"value": "8|3jhhgcopQb0psAItKeAryPw9uRlVlyauXZJBSmOu",
+			"type": "string"
+		},
+		{
+			"key": "adminToken",
+			"value": "10|uj20JiFyXQbPXekAm5m1CtewFREUfd599VEuFIqM",
 			"type": "string"
 		}
 	]
